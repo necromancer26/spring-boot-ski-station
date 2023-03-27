@@ -5,8 +5,10 @@ import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "abonnements")
 public class Abonnement implements Serializable{
     @Id
     private long numAbonnement;
@@ -45,8 +47,4 @@ public class Abonnement implements Serializable{
     public void setTypeAbonnement(TypeAbonnement typeAbonnement) {
         this.typeAbonnement = typeAbonnement;
     }
-}
-
-enum TypeAbonnement {
-    ANNUEL, SEMESTRIEL, MENSUEL
 }

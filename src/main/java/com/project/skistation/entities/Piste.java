@@ -8,13 +8,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
-import java.util.Set;
+import jakarta.persistence.Table;
 
-import com.project.skistation.entities.Abonnement;
-import com.project.skistation.entities.Skieur;
+import java.util.Set;
 
 
 @Entity
+@Table(name = "pistes")
 public class Piste {
     public Piste(String nomPiste, Couleur couleur, int longeur, int pente, Set<Skieur> skieurs, Abonnement abonnement) {
         this.nomPiste = nomPiste;
@@ -84,8 +84,4 @@ public class Piste {
     public void setPente(int pente) {
         this.pente = pente;
     }
-}
-
-enum Couleur {
-    VERT, BLEU, ROUGE, NOIR
 }

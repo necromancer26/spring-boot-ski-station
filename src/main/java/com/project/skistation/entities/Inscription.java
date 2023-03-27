@@ -8,9 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "inscriptions")
 public class Inscription implements Serializable{
     public Inscription(long numInscription, int numSemaine, Skieur skieur, Cour cour) {
         this.numInscription = numInscription;
