@@ -1,8 +1,6 @@
 package com.project.skistation.entities;
 
 import java.io.Serializable;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,6 +27,11 @@ public class Inscription implements Serializable{
     @ManyToOne
     private Cour cour;
 
+    public Inscription(int numSemaine, Skieur skieur, Cour cour) {
+        this.numSemaine = numSemaine;
+        this.skieur = skieur;
+        this.cour = cour;
+    }
     public long getNumInscription() {
         return numInscription;
     }
@@ -40,6 +43,11 @@ public class Inscription implements Serializable{
     }
     public void setNumSemaine(int numSemaine) {
         this.numSemaine = numSemaine;
+    }
+    @Override
+    public String toString() {
+        return "Inscription [numInscription=" + numInscription + ", numSemaine=" + numSemaine + ", skieur=" + skieur
+                + ", cour=" + cour + "]";
     }
 
 

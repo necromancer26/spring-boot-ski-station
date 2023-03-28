@@ -47,4 +47,10 @@ public class Abonnement implements Serializable{
     public void setTypeAbonnement(TypeAbonnement typeAbonnement) {
         this.typeAbonnement = typeAbonnement;
     }
+    @Override
+    public String toString() {
+        return "Abonnement [numAbonnement=" + numAbonnement + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
+                + ", prixAbonnement=" + prixAbonnement + ", typeAbonnement=" + typeAbonnement + "]";
+    }
+    
 }

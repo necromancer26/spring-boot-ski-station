@@ -16,6 +16,17 @@ import java.util.Set;
 @Entity
 @Table(name = "pistes")
 public class Piste {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long numPiste;
+    private String nomPiste;
+    private Couleur couleur;
+    private int longeur;
+    private int pente;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Skieur> skieurs;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Abonnement abonnement;
     public Piste(String nomPiste, Couleur couleur, int longeur, int pente, Set<Skieur> skieurs, Abonnement abonnement) {
         this.nomPiste = nomPiste;
         this.couleur = couleur;
@@ -35,18 +46,6 @@ public class Piste {
         this.skieurs = skieurs;
         this.abonnement = abonnement;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long numPiste;
-    private String nomPiste;
-    private Couleur couleur;
-    private int longeur;
-    private int pente;
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Skieur> skieurs;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Abonnement abonnement;
-
     public Piste(String nomPiste, Couleur couleur, int longeur, int pente) {
         this.nomPiste = nomPiste;
         this.couleur = couleur;
