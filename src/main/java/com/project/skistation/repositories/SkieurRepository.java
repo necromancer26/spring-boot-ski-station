@@ -7,5 +7,5 @@ import com.project.skistation.entities.Skieur;
 
 @Repository
 public interface SkieurRepository extends JpaRepository<Skieur,Long>{
-    
+
 }

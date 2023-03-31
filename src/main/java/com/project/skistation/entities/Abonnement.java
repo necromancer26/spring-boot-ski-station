@@ -1,9 +1,12 @@
 package com.project.skistation.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,12 +14,19 @@ import jakarta.persistence.Table;
 @Table(name = "abonnements")
 public class Abonnement implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long numAbonnement;
     private Date dateDebut;
     private Date dateFin;
     private float prixAbonnement;
     private TypeAbonnement typeAbonnement;
 
+    public Abonnement(float prixAbonnement, TypeAbonnement typeAbonnement) {
+        this.prixAbonnement = prixAbonnement;
+        this.typeAbonnement = typeAbonnement;
+        this.dateDebut = new Date();
+        this.dateFin= new Date(12);
+    }
     public long getNumAbonnement() {
         return numAbonnement;
     }

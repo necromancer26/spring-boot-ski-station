@@ -49,6 +49,7 @@ public class Inscription implements Serializable{
         return "Inscription [numInscription=" + numInscription + ", numSemaine=" + numSemaine + ", skieur=" + skieur
                 + ", cour=" + cour + "]";
     }
+    
 
 
 }

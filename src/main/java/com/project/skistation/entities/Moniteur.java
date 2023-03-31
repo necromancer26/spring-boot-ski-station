@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 @Table(name = "moniteurs")
 public class Moniteur implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long numMoniteur;
     private String nomMoniteur;
     private String prenomMoniteur;

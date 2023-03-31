@@ -6,30 +6,29 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.skistation.entities.Abonnement;
 import com.project.skistation.entities.Skieur;
 import com.project.skistation.repositories.SkieurRepository;
 
 @Service
 public class SkieurService implements ISkieurService {
     @Autowired
-    private final SkieurRepository skieurRepository;
+    private SkieurRepository skieurRepository;
 
-    SkieurService(SkieurRepository skieurRepository) {
-        this.skieurRepository = skieurRepository;
-    }
+    // SkieurService(SkieurRepository skieurRepository) {
+    // this.skieurRepository = skieurRepository;
+    // }
 
     @Override
     public List<Skieur> retrieveAllSkieurs() {
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method
-        // 'retrieveAllSkieurs'");
         return skieurRepository.findAll();
     }
 
     @Override
     public Skieur addSkieur(Skieur skieur) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addSkieur'");
+        System.out.println(skieur.toString());
+        return skieurRepository.save(skieur);
+        // return null;
     }
 
     @Override
@@ -40,7 +39,7 @@ public class SkieurService implements ISkieurService {
 
     @Override
     public Optional<Skieur> retrieveSkieur(Long idSkieur) {
-            return skieurRepository.findById(idSkieur);
+        return skieurRepository.findById(idSkieur);
     }
 
     @Override
@@ -48,5 +47,13 @@ public class SkieurService implements ISkieurService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deleteSkieur'");
     }
+
+    @Override
+    public Skieur addSkieurWithAbonnement(Skieur skieur,Abonnement abonnement) {
+        skieur.setAbonnement(abonnement);
+        return skieurRepository.save(skieur);
+
+    }
+    
 
 }

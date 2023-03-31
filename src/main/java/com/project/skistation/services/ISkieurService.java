@@ -3,6 +3,7 @@ package com.project.skistation.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.project.skistation.entities.Abonnement;
 import com.project.skistation.entities.Skieur;
 
 public interface ISkieurService {
@@ -15,4 +16,7 @@ public interface ISkieurService {
     Optional<Skieur> retrieveSkieur(Long idSkieur);
 
     void deleteSkieur(Long idSkieur);
+    
+    Skieur addSkieurWithAbonnement(Skieur skieur,Abonnement abonnement);
+
 }
