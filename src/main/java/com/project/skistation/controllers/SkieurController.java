@@ -68,5 +68,19 @@ public class SkieurController {
         Skieur addedSkieur = skieurService.addSkieurWithAbonnement(skieur);
         return addedSkieur;
     }
+    @PostMapping("/add-inscriptions")
+    public Skieur addSkieurWithListInscriptions(@RequestBody Skieur skieur) {
+        // System.out.println(skieur.toString()+"\n"+abonnement.toString());
+        // System.out.println(request.toString());
+        // return "";
+        // Abonnement abonnement= new Abonnement(12, TypeAbonnement.ANNUEL);
+        // skieur.setAbonnement(abonnement);
+
+        // Skieur addedSkieur = skieurService.addSkieur(skieur);
+        // return new ResponseEntity<>(addedSkieur, HttpStatus.CREATED);
+        // System.out.println(skieur.getAbonnement());
+        Skieur addedSkieur = skieurService.addSkieurWithAbonnement(skieur);
+        return addedSkieur;
+    }
 
 }

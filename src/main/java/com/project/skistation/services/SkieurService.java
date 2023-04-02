@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.project.skistation.entities.Abonnement;
 import com.project.skistation.entities.Skieur;
 import com.project.skistation.repositories.AbonnementRepository;
+import com.project.skistation.repositories.InscriptionRepository;
 import com.project.skistation.repositories.SkieurRepository;
 
 @Service
@@ -17,6 +18,8 @@ public class SkieurService implements ISkieurService {
     private SkieurRepository skieurRepository;
     @Autowired
     private AbonnementRepository abonnementRepository;
+    @Autowired
+    private InscriptionRepository inscriptionRepository;
 
     // SkieurService(SkieurRepository skieurRepository) {
     // this.skieurRepository = skieurRepository;
@@ -55,6 +58,13 @@ public class SkieurService implements ISkieurService {
         abonnementRepository.save(skieur.getAbonnement());
         return skieurRepository.save(skieur);
 
+    }
+
+    public Skieur addSkieurWithListInscriptions(Skieur skieur) {
+        // inscriptionRepository.save(skieur.getInscriptions());
+        // inscriptionRepository.save(skieur.getInscriptions());
+        inscriptionRepository.saveAll(skieur.getInscriptions());
+        return skieurRepository.save(skieur);
     }
     
 
