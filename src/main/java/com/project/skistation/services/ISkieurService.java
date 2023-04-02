@@ -17,6 +17,6 @@ public interface ISkieurService {
 
     void deleteSkieur(Long idSkieur);
     
-    Skieur addSkieurWithAbonnement(Skieur skieur,Abonnement abonnement);
+    Skieur addSkieurWithAbonnement(Skieur skieur);
 
 }

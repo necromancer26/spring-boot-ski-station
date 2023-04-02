@@ -31,7 +31,6 @@ public class Skieur implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Inscription> inscriptions;
     @OneToOne
-    @Autowired
     private Abonnement abonnement;
 
     public Skieur() {

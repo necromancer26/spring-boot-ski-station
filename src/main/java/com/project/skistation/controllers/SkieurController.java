@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.skistation.entities.Abonnement;
 import com.project.skistation.entities.Skieur;
+import com.project.skistation.entities.TypeAbonnement;
 import com.project.skistation.services.SkieurService;
 
 import jakarta.websocket.server.PathParam;
@@ -58,9 +59,14 @@ public class SkieurController {
         // System.out.println(skieur.toString()+"\n"+abonnement.toString());
         // System.out.println(request.toString());
         // return "";
-        Skieur addedSkieur = skieurService.addSkieur(skieur);
+        // Abonnement abonnement= new Abonnement(12, TypeAbonnement.ANNUEL);
+        // skieur.setAbonnement(abonnement);
+
+        // Skieur addedSkieur = skieurService.addSkieur(skieur);
         // return new ResponseEntity<>(addedSkieur, HttpStatus.CREATED);
-        return null;
+        // System.out.println(skieur.getAbonnement());
+        Skieur addedSkieur = skieurService.addSkieurWithAbonnement(skieur);
+        return addedSkieur;
     }
 
 }
