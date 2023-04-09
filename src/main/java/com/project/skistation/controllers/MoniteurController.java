@@ -38,8 +38,10 @@ public class MoniteurController {
 
     @PutMapping("/{numMoniteur}")
     public Moniteur updateMoniteur(@PathVariable long numMoniteur, @RequestBody Moniteur moniteur) {
-        return moniteurService.updateMoniteur( moniteur);
+        moniteur.setNumMoniteur(numMoniteur);
+        return moniteurService.updateMoniteur(moniteur);
     }
+    
 
     @DeleteMapping("/{numMoniteur}")
     public ResponseEntity<Void> deleteMoniteur(@PathVariable long numMoniteur) {

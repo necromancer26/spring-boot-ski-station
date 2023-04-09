@@ -21,6 +21,8 @@ public class Abonnement implements Serializable{
     private float prixAbonnement;
     private TypeAbonnement typeAbonnement;
 
+    public Abonnement(){};
+
     public Abonnement(float prixAbonnement, TypeAbonnement typeAbonnement) {
         this.prixAbonnement = prixAbonnement;
         this.typeAbonnement = typeAbonnement;

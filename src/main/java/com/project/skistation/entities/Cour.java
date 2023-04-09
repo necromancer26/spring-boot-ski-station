@@ -24,25 +24,27 @@ public class Cour implements Serializable{
     private int creneau;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Inscription> inscriptions;
-    public Cour(int niveau, TypeCours typeCours, Support support, float prix, int creneau,
-            Set<Inscription> inscriptions) {
-        this.niveau = niveau;
-        this.typeCours = typeCours;
-        this.support = support;
-        this.prix = prix;
-        this.creneau = creneau;
-        this.inscriptions = inscriptions;
-    }
-    public Cour(long numCours, int niveau, TypeCours typeCours, Support support, float prix, int creneau,
-            Set<Inscription> inscriptions) {
-        this.numCours = numCours;
-        this.niveau = niveau;
-        this.typeCours = typeCours;
-        this.support = support;
-        this.prix = prix;
-        this.creneau = creneau;
-        this.inscriptions = inscriptions;
-    }
+
+
+    // public Cour(int niveau, TypeCours typeCours, Support support, float prix, int creneau,
+    //         Set<Inscription> inscriptions) {
+    //     this.niveau = niveau;
+    //     this.typeCours = typeCours;
+    //     this.support = support;
+    //     this.prix = prix;
+    //     this.creneau = creneau;
+    //     this.inscriptions = inscriptions;
+    // }
+    // public Cour(long numCours, int niveau, TypeCours typeCours, Support support, float prix, int creneau,
+    //         Set<Inscription> inscriptions) {
+    //     this.numCours = numCours;
+    //     this.niveau = niveau;
+    //     this.typeCours = typeCours;
+    //     this.support = support;
+    //     this.prix = prix;
+    //     this.creneau = creneau;
+    //     this.inscriptions = inscriptions;
+    // }
     public long getNumCours() {
         return numCours;
     }

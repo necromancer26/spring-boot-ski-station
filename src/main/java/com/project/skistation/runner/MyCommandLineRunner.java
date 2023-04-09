@@ -1,25 +1,11 @@
 package com.project.skistation.runner;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.random.RandomGeneratorFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
-
-import com.arakelian.faker.service.RandomPerson;
-import com.project.skistation.entities.Abonnement;
-import com.project.skistation.entities.Couleur;
-import com.project.skistation.entities.Piste;
-import com.project.skistation.entities.Skieur;
-import com.project.skistation.entities.TypeAbonnement;
 import com.project.skistation.repositories.AbonnementRepository;
 import com.project.skistation.repositories.PisteRepository;
-import com.project.skistation.services.AbonnementService;
+import com.project.skistation.services.IAbonnementService;
 import com.project.skistation.services.SkieurService;
 
 @SpringBootApplication
@@ -31,7 +17,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Autowired
     private PisteRepository pisteRepository;
     @Autowired
-    private AbonnementService abonnementService;
+    private IAbonnementService abonnementService;
     @Autowired
     private SkieurService skieurService;
     @Override

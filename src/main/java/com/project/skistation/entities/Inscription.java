@@ -27,6 +27,8 @@ public class Inscription implements Serializable{
     @ManyToOne
     private Cour cour;
 
+    public Inscription() {
+    }
     public Inscription(int numSemaine, Skieur skieur, Cour cour) {
         this.numSemaine = numSemaine;
         this.skieur = skieur;
@@ -48,6 +50,18 @@ public class Inscription implements Serializable{
     public String toString() {
         return "Inscription [numInscription=" + numInscription + ", numSemaine=" + numSemaine + ", skieur=" + skieur
                 + ", cour=" + cour + "]";
+    }
+    public Skieur getSkieur() {
+        return skieur;
+    }
+    public void setSkieur(Skieur skieur) {
+        this.skieur = skieur;
+    }
+    public Cour getCour() {
+        return cour;
+    }
+    public void setCour(Cour cour) {
+        this.cour = cour;
     }
     
 

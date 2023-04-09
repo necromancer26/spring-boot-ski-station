@@ -1,17 +1,18 @@
 package com.project.skistation.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.project.skistation.entities.Inscription;
 
 public interface IInscriptionService {
-    List<Inscription> retrieveAllInscription();
 
-    Inscription addInscription(Inscription inscription);
+    Inscription saveInscription(Inscription inscription);
 
-    Inscription updateInscription(Inscription inscription);
+    Optional<Inscription> getInscriptionById(long numInscription);
 
-    Inscription retrieveInscription(Long idInscription);
+    List<Inscription> getAllInscriptions();
 
-    void deleteInscription(Long idInscription);
+    void deleteInscriptionById(long id);
+
 }

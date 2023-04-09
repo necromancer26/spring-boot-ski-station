@@ -3,6 +3,7 @@ package com.project.skistation.controllers;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +19,7 @@ import com.project.skistation.services.SkieurService;
 
 // @AllArgsConstructor
 @RestController
-@RequestMapping("/skieurs")
+@RequestMapping("/api")
 public class SkieurController {
     @Autowired
     SkieurService skieurService;
@@ -27,40 +28,45 @@ public class SkieurController {
     // this.skieurService = skieurService;
     // };
 
-    @GetMapping("/all")
+    @GetMapping("/skieurs/all")
     List<Skieur> getAll() {
         return skieurService.retrieveAllSkieurs();
     }
 
-    @GetMapping("/ski/{id}")
+    @GetMapping("/skieurs/ski/{id}")
     Optional<Skieur> getOne(@PathVariable("id") Long id) {
         return skieurService.retrieveSkieur(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/skieurs/{id}")
     public ResponseEntity<String> deleteSkieur(@PathVariable("id") Long id) {
         skieurService.deleteSkieur(id);
         return new ResponseEntity<>("Skieur with ID " + id + " has been deleted successfully.", HttpStatus.OK);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/skieurs/add")
     public Skieur addSkieur(@RequestBody Skieur requestBodySkieur) {
         return skieurService.addSkieur(requestBodySkieur);
     }
 
-    @PostMapping("/add-abonnement")
+    @PostMapping("/skieurs/cour/{numCour}")
+    public Skieur addSkieurAndAssignToCours(@RequestBody Skieur requestBodySkieur, @PathVariable Long numCour) {
+        return skieurService.addSkieurAndAssignToCours(requestBodySkieur, numCour);
+    }
+
+    @PostMapping("/skieurs/add-abonnement")
     public Skieur addSkieurAbonnement(@RequestBody Skieur skieur) {
         Skieur addedSkieur = skieurService.addSkieurWithAbonnement(skieur);
         return addedSkieur;
     }
 
-    @PostMapping("/add-inscriptions")
+    @PostMapping("/skieurs/add-inscriptions")
     public Skieur addSkieurWithListInscriptions(@RequestBody Skieur skieur) {
         Skieur addedSkieur = skieurService.addSkieurWithAbonnement(skieur);
         return addedSkieur;
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/skieurs/{id}")
     public ResponseEntity<Skieur> updateSkieur(@PathVariable("id") Long id, @RequestBody Skieur skieur) {
         Optional<Skieur> skieurData = skieurService.retrieveSkieur(id);
         if (skieurData.isPresent()) {
@@ -75,6 +81,12 @@ public class SkieurController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PostMapping("/skieurs/{numSkieur}/pistes/{numPiste}")
+    public Skieur assignSkieurToPiste(@PathVariable Long numSkieur, @PathVariable Long numPiste)
+            throws NotFoundException {
+        return skieurService.assignSkieurToPiste(numSkieur, numPiste);
     }
 
 }

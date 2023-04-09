@@ -1,17 +1,22 @@
 package com.project.skistation.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.project.skistation.entities.Abonnement;
+import com.project.skistation.entities.TypeAbonnement;
 
 public interface IAbonnementService {
-    List<Abonnement> retrieveAllAbonnement();
 
-    Abonnement addAbonnement(Abonnement abonnement);
+    Abonnement saveAbonnement(Abonnement abonnement);
 
-    Abonnement updateAbonnement(Abonnement abonnement);
+    Optional<Abonnement> getAbonnementById(long numAbonnement);
 
-    Abonnement retrieveAbonnement(Long idAbonnement);
+    List<Abonnement> getAllAbonnements();
 
-    void deleteAbonnement(Long idAbonnement);
+    void deleteAbonnementById(long id);
+    
+    List<Abonnement> getAbonnementByType(TypeAbonnement type);
+
+
 }

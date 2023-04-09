@@ -1,51 +1,45 @@
 package com.project.skistation.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.project.skistation.entities.Abonnement;
+import com.project.skistation.entities.TypeAbonnement;
 import com.project.skistation.repositories.AbonnementRepository;
 
 @Service
 @Component
-public class AbonnementService implements IAbonnementService{
+public class AbonnementService implements IAbonnementService {
     @Autowired
     private AbonnementRepository abonnementRepository;
 
-    public AbonnementService (AbonnementRepository abonnementRepository){
+    @Override
+    public Abonnement saveAbonnement(Abonnement abonnement) {
+        return abonnementRepository.save(abonnement);
+    }
 
+    public Optional<Abonnement> getAbonnementById(long numAbonnement) {
+        return abonnementRepository.findById(numAbonnement);
     }
 
     @Override
-    public List<Abonnement> retrieveAllAbonnement() {
+    public List<Abonnement> getAllAbonnements() {
         return abonnementRepository.findAll();
     }
 
     @Override
-    public Abonnement addAbonnement(Abonnement abonnement) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addAbonnement'");
+    public void deleteAbonnementById(long id) {
+        abonnementRepository.deleteById(id);
     }
 
     @Override
-    public Abonnement updateAbonnement(Abonnement abonnement) {
+    public List<Abonnement> getAbonnementByType(TypeAbonnement type) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateAbonnement'");
+        throw new UnsupportedOperationException("Unimplemented method 'getAbonnementByType'");
     }
 
-    @Override
-    public Abonnement retrieveAbonnement(Long idAbonnement) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'retrieveAbonnement'");
-    }
-
-    @Override
-    public void deleteAbonnement(Long idAbonnement) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteAbonnement'");
-    }
-    
 }

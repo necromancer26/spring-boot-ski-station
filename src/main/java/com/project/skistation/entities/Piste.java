@@ -27,32 +27,10 @@ public class Piste {
     private Set<Skieur> skieurs;
     @OneToOne(cascade = CascadeType.ALL)
     private Abonnement abonnement;
-    public Piste(String nomPiste, Couleur couleur, int longeur, int pente, Set<Skieur> skieurs, Abonnement abonnement) {
-        this.nomPiste = nomPiste;
-        this.couleur = couleur;
-        this.longeur = longeur;
-        this.pente = pente;
-        this.skieurs = skieurs;
-        this.abonnement = abonnement;
-    }
-
-    public Piste(long numPiste, String nomPiste, Couleur couleur, int longeur, int pente, Set<Skieur> skieurs,
-            Abonnement abonnement) {
-        this.numPiste = numPiste;
-        this.nomPiste = nomPiste;
-        this.couleur = couleur;
-        this.longeur = longeur;
-        this.pente = pente;
-        this.skieurs = skieurs;
-        this.abonnement = abonnement;
-    }
-    public Piste(String nomPiste, Couleur couleur, int longeur, int pente) {
-        this.nomPiste = nomPiste;
-        this.couleur = couleur;
-        this.longeur = longeur;
-        this.pente = pente;
-    }
     
+    
+    public Piste() {
+    }
     public long getNumPiste() {
         return numPiste;
     }
@@ -82,5 +60,21 @@ public class Piste {
     }
     public void setPente(int pente) {
         this.pente = pente;
+    }
+
+    public Set<Skieur> getSkieurs() {
+        return skieurs;
+    }
+
+    public void setSkieurs(Set<Skieur> skieurs) {
+        this.skieurs = skieurs;
+    }
+
+    public Abonnement getAbonnement() {
+        return abonnement;
+    }
+
+    public void setAbonnement(Abonnement abonnement) {
+        this.abonnement = abonnement;
     }
 }

@@ -1,17 +1,20 @@
 package com.project.skistation.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.project.skistation.entities.Piste;
 
 public interface IPisteService {
-    List<Piste> retrieveAllPistes();
 
-    Piste addPiste(Piste piste);
+    Piste savePiste(Piste piste);
 
-    Piste updatePiste(Piste piste);
+    Optional<Piste> getPisteById(long numPiste);
 
-    Piste retrievePiste(Long idPiste);
+    List<Piste> getAllPistes();
 
-    void deletePiste(Long idPiste);
+    void deletePisteById(long id);
+
+    public Piste updatePiste(Piste modifiedPiste);
+
 }
