@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.project.skistation.entities.Abonnement;
@@ -104,5 +105,7 @@ public class SkieurService implements ISkieurService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'retrieveSkieursByAbonnementType'");
     }
+
+
 
 }

@@ -1,17 +1,25 @@
 package com.project.skistation.runner;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.Scheduled;
+
+import com.project.skistation.entities.Skieur;
 import com.project.skistation.repositories.AbonnementRepository;
 import com.project.skistation.repositories.PisteRepository;
+import com.project.skistation.repositories.SkieurRepository;
 import com.project.skistation.services.IAbonnementService;
 import com.project.skistation.services.SkieurService;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.project.skistation")
 public class MyCommandLineRunner implements CommandLineRunner {
-
     @Autowired
     private AbonnementRepository abonnementRepository;
     @Autowired
@@ -20,24 +28,33 @@ public class MyCommandLineRunner implements CommandLineRunner {
     private IAbonnementService abonnementService;
     @Autowired
     private SkieurService skieurService;
+    @Autowired
+    private SkieurRepository skieurRepository;
+
     @Override
     public void run(String... args) throws Exception {
         // create a new Abonnement
         System.out.println("hello inside cli");
+        System.out.println("hello");
+        // scheduleFixedDelayTask();
+    }
 
-        // Abonnement abonnement = new Abonnement();
-        // abonnement.setNumAbonnement(1L);
-        // abonnement.setDateDebut(new Date());
-        // abonnement.setDateFin(new Date());
-        // abonnement.setPrixAbonnement(100.0f);
-        // abonnement.setTypeAbonnement(TypeAbonnement.ANNUEL);
-        // abonnementRepository.save(abonnement);
-        // Piste piste=new Piste("Les Crêtes", Couleur.VERT, 5, 2);
-        // pisteRepository.save(piste);
-
+    // @Scheduled(fixedDelay = 2000)
+    // @Scheduled(cron ="*/10 * * * * *")
+    // @Scheduled(cron ="*/10 * * * * ?")
+    // public void scheduleFixedDelayTask() {
+    // System.out.println(
+    // "Fixed delay task - " + System.currentTimeMillis() / 1000);
+    // }
+    // @Scheduled(cron = "*/10 * * * * ?")
+    // @Async
+    void retrieveSubscriptions() {
+        // List<Skieur> skieurs = skieurRepository.findAll();
+        // Skieur skieur = skieurRepository.findById((long) 14).get();
 
         System.out.println("hello");
-        // abonnementRepository.findAll().forEach(abonnement->{abonnement.toString();});
+        // System.out.println(skieurs.toString());
+        // skieurs.forEach(skieur -> System.out.println(skieur.toString()));
     }
 
 }
