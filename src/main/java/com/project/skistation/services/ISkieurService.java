@@ -1,11 +1,13 @@
 package com.project.skistation.services;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
 import com.project.skistation.entities.Abonnement;
+import com.project.skistation.entities.Couleur;
 import com.project.skistation.entities.Skieur;
 import com.project.skistation.entities.TypeAbonnement;
 
@@ -30,5 +32,6 @@ public interface ISkieurService {
     
     List<Skieur> retrieveSkieursByAbonnementType(TypeAbonnement typeAbonnement);
     
+    HashMap<Couleur,Integer> nombreSkieursParCouleurPiste();
 
 }

@@ -9,56 +9,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.Value;
+import lombok.experimental.FieldDefaults;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "abonnements")
+@FieldDefaults(makeFinal=false, level=AccessLevel.PRIVATE)
 public class Abonnement implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long numAbonnement;
-    private Date dateDebut;
-    private Date dateFin;
-    private float prixAbonnement;
-    private TypeAbonnement typeAbonnement;
+    long numAbonnement;
+    Date dateDebut;
+    Date dateFin;
+    float prixAbonnement;
+    TypeAbonnement typeAbonnement;
 
-    public Abonnement(){};
-
-    public Abonnement(float prixAbonnement, TypeAbonnement typeAbonnement) {
-        this.prixAbonnement = prixAbonnement;
-        this.typeAbonnement = typeAbonnement;
-        this.dateDebut = new Date();
-        this.dateFin= new Date(12);
-    }
-    public long getNumAbonnement() {
-        return numAbonnement;
-    }
-    public void setNumAbonnement(long numAbonnement) {
-        this.numAbonnement = numAbonnement;
-    }
-    public Date getDateDebut() {
-        return dateDebut;
-    }
-    public void setDateDebut(Date dateDebut) {
-        this.dateDebut = dateDebut;
-    }
-    public Date getDateFin() {
-        return dateFin;
-    }
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
-    }
-    public float getPrixAbonnement() {
-        return prixAbonnement;
-    }
-    public void setPrixAbonnement(float prixAbonnement) {
-        this.prixAbonnement = prixAbonnement;
-    }
-    public TypeAbonnement getTypeAbonnement() {
-        return typeAbonnement;
-    }
-    public void setTypeAbonnement(TypeAbonnement typeAbonnement) {
-        this.typeAbonnement = typeAbonnement;
-    }
     @Override
     public String toString() {
         return "Abonnement [numAbonnement=" + numAbonnement + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin

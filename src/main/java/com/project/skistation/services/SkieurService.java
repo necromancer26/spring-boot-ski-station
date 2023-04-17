@@ -1,5 +1,7 @@
 package com.project.skistation.services;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -10,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.project.skistation.entities.Abonnement;
+import com.project.skistation.entities.Couleur;
 import com.project.skistation.entities.Cour;
 import com.project.skistation.entities.Inscription;
 import com.project.skistation.entities.Piste;
@@ -106,6 +109,20 @@ public class SkieurService implements ISkieurService {
         throw new UnsupportedOperationException("Unimplemented method 'retrieveSkieursByAbonnementType'");
     }
 
+    @Override
+    public HashMap<Couleur, Integer> nombreSkieursParCouleurPiste() {
+        HashMap<Couleur, Integer> nombreSkieursParCouleurPiste = new HashMap<>();
+        List<Skieur> skieurs = skieurRepository.findAll();
 
+        // List couleurs= (List) Couleur.values();
+        Arrays.asList(Couleur.values())
+                .forEach(couleur -> {             
+                    // int nbSkieur= skieurs.stream().filter(skieur->{ skieur.getPistes().stream().anyMatch(t -> t.getCouleur().compareTo(couleur)) }).count();
+                
+                    nombreSkieursParCouleurPiste.put(couleur, 2);});
+
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'nombreSkieursParCouleurPiste'");
+    }
 
 }
