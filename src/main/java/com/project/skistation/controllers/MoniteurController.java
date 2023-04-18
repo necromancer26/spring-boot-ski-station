@@ -24,6 +24,16 @@ public class MoniteurController {
     public List<Moniteur> getAllMoniteurs() {
         return moniteurService.getAllMoniteurs();
     }
+    @GetMapping("best")
+    public Moniteur getBestMoniteur() {
+        try {
+            return moniteurService.besMoniteur();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @GetMapping("/{numMoniteur}")
     public Moniteur getMoniteurByNumMoniteur(@PathVariable long numMoniteur) {

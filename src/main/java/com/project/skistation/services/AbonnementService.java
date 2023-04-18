@@ -56,7 +56,7 @@ public class AbonnementService implements IAbonnementService {
         throw new UnsupportedOperationException("Unimplemented method 'getAbonnementByType'");
     }
 
-    @Scheduled(cron = "* 1 * * * *")
+    // @Scheduled(cron = "* 1 * * * *")
     // @Async
     void retrieveSubscriptions() {
         List<Abonnement> abonnements = abonnementRepository.findAll();

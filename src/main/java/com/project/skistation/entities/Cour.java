@@ -10,14 +10,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.FieldDefaults;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "cours")
+@FieldDefaults(makeFinal=false, level=AccessLevel.PRIVATE)
 public class Cour implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
